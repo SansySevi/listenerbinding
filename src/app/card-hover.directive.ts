@@ -17,20 +17,18 @@ export class CardHoverDirective {
     'LightSteelBlue'
   ];
 
-  @HostBinding('style.background-color')
-  private bgColors!: string;
-
-  @HostBinding('class.border-danger')
-  private borders!: boolean;
+  @HostBinding('class.border-danger') private borders!: boolean;
+  @HostBinding('style.background-color') private bgColors!: string;
+  
 
   constructor(private element: ElementRef, private renderer: Renderer2) {}
-
 
   @HostListener('mouseover') onMouseOver() {
     let part = this.element.nativeElement.querySelector('.card-text');
     this.renderer.setStyle(part, 'display', 'block');
-    this.borders = false;
 
+
+    this.borders = false;
     const color = Math.floor(Math.random() * this.possibleColors.length);
     this.bgColors = this.possibleColors[color];
   }
