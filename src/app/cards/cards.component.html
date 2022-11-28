@@ -1,0 +1,9 @@
+<div class="container">
+    <div *ngFor="let personaje of personajes" class="card mb-3" style="max-width: 18rem; height: fit-content;" appCardHover>
+        <img src='../../assets/images/{{personaje.imagen}}' class="card-img-top" alt="...">
+        <div class="card-body text-dark">
+            <h5 class="card-title">{{personaje.nombre}}</h5>
+            <p class="card-text" [style.display]="'none'">{{personaje.detalles}}</p>
+        </div>
+    </div>
+</div>
